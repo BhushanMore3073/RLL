@@ -1,0 +1,165 @@
+--------------------------------------------------------------------------------------------------------------------------
+Table Structure
+--------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE `admin_login` (
+ `ausername` varchar(255) NOT NULL,
+ `apassword` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`ausername`)
+)
+
+CREATE TABLE `customer` (
+ `customer_id` bigint(20) NOT NULL AUTO_INCREMENT,
+ `customer_address` varchar(255) DEFAULT NULL,
+ `customer_email` varchar(255) DEFAULT NULL,
+ `customer_name` varchar(255) DEFAULT NULL,
+ `customer_password` varchar(255) DEFAULT NULL,
+ `customer_phone_no` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`customer_id`),
+ UNIQUE KEY `UK_qy5hqprdvx8o3dcidcfmf17x4` (`customer_email`)
+) 
+
+CREATE TABLE `item` (
+ `item_id` bigint(20) NOT NULL AUTO_INCREMENT,
+ `item_category` varchar(255) DEFAULT NULL,
+ `item_description` varchar(255) DEFAULT NULL,
+ `item_name` varchar(255) DEFAULT NULL,
+ `item_price` double NOT NULL,
+ `item_quantity` int(11) NOT NULL,
+ `vendor_id` bigint(20) NOT NULL,
+ PRIMARY KEY (`item_id`)
+) 
+
+CREATE TABLE `purchase` (
+ `purchase_id` bigint(20) NOT NULL AUTO_INCREMENT,
+ `customer_id` bigint(20) NOT NULL,
+ `customer_name` varchar(255) DEFAULT NULL,
+ `item_id` bigint(20) NOT NULL,
+ `item_name` varchar(255) DEFAULT NULL,
+ `price_per_item` double NOT NULL,
+ `purchase_date` varchar(255) DEFAULT NULL,
+ `purchase_quantity` int(11) NOT NULL,
+ `total_price` double NOT NULL,
+ PRIMARY KEY (`purchase_id`)
+) 
+
+CREATE TABLE `sales` (
+ `sale_id` bigint(20) NOT NULL AUTO_INCREMENT,
+ `customer_id` bigint(20) NOT NULL,
+ `customer_name` varchar(255) DEFAULT NULL,
+ `item_id` bigint(20) NOT NULL,
+ `item_name` varchar(255) DEFAULT NULL,
+ `price_per_item` double NOT NULL,
+ `sale_date` varchar(255) DEFAULT NULL,
+ `sale_quantity` bigint(20) NOT NULL,
+ `total_price` double NOT NULL,
+ `vendor_id` bigint(20) NOT NULL,
+ PRIMARY KEY (`sale_id`)
+)
+
+CREATE TABLE `vendor` (
+ `vendor_id` bigint(20) NOT NULL AUTO_INCREMENT,
+ `vendor_address` varchar(255) DEFAULT NULL,
+ `vendor_email` varchar(255) DEFAULT NULL,
+ `vendor_name` varchar(255) DEFAULT NULL,
+ `vendor_password` varchar(255) DEFAULT NULL,
+ `vendor_phone` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`vendor_id`),
+ UNIQUE KEY `UK_gp5lakbnvncc9y491wpa3nmqe` (`vendor_email`)
+) 
+
+---------------------------------------------------------------------------------------------------------------------
+Table Data
+---------------------------------------------------------------------------------------------------------------------
+
+===Database spring_inventory
+
+== Table structure for table admin_login
+
+|------
+|Column|Type|Null|Default
+|------
+|//**ausername**//|varchar(255)|No|
+|apassword|varchar(255)|Yes|NULL
+== Dumping data for table admin_login
+
+|Bhushan|b@123
+== Table structure for table customer
+
+|------
+|Column|Type|Null|Default
+|------
+|//**customer_id**//|bigint(20)|No|
+|customer_address|varchar(255)|Yes|NULL
+|**customer_email**|varchar(255)|Yes|NULL
+|customer_name|varchar(255)|Yes|NULL
+|customer_password|varchar(255)|Yes|NULL
+|customer_phone_no|varchar(255)|Yes|NULL
+== Dumping data for table customer
+
+|1|Amravati|vinod@gmail.com|Vinod|v@123|4561237890
+== Table structure for table item
+
+|------
+|Column|Type|Null|Default
+|------
+|//**item_id**//|bigint(20)|No|
+|item_category|varchar(255)|Yes|NULL
+|item_description|varchar(255)|Yes|NULL
+|item_name|varchar(255)|Yes|NULL
+|item_price|double|No|
+|item_quantity|int(11)|No|
+|vendor_id|bigint(20)|No|
+== Dumping data for table item
+
+|1|Electronics|8GB RAM 256GB Memory Black|Redmi note 10|20000|44|1
+== Table structure for table purchase
+
+|------
+|Column|Type|Null|Default
+|------
+|//**purchase_id**//|bigint(20)|No|
+|customer_id|bigint(20)|No|
+|customer_name|varchar(255)|Yes|NULL
+|item_id|bigint(20)|No|
+|item_name|varchar(255)|Yes|NULL
+|price_per_item|double|No|
+|purchase_date|varchar(255)|Yes|NULL
+|purchase_quantity|int(11)|No|
+|total_price|double|No|
+== Dumping data for table purchase
+
+|1|1|Vinod|1|Redmi note 10|20000|2022-05-16|3|60000
+== Table structure for table sales
+
+|------
+|Column|Type|Null|Default
+|------
+|//**sale_id**//|bigint(20)|No|
+|customer_id|bigint(20)|No|
+|customer_name|varchar(255)|Yes|NULL
+|item_id|bigint(20)|No|
+|item_name|varchar(255)|Yes|NULL
+|price_per_item|double|No|
+|sale_date|varchar(255)|Yes|NULL
+|sale_quantity|bigint(20)|No|
+|total_price|double|No|
+|vendor_id|bigint(20)|No|
+== Dumping data for table sales
+
+|1|1|Vinod|1|Redmi note 10|20000|2022-05-16|3|60000|1
+== Table structure for table vendor
+
+|------
+|Column|Type|Null|Default
+|------
+|//**vendor_id**//|bigint(20)|No|
+|vendor_address|varchar(255)|Yes|NULL
+|**vendor_email**|varchar(255)|Yes|NULL
+|vendor_name|varchar(255)|Yes|NULL
+|vendor_password|varchar(255)|Yes|NULL
+|vendor_phone|varchar(255)|Yes|NULL
+== Dumping data for table vendor
+
+|1|Jalgoan Maharashtra India|bhushan@gmail.com|Bhushan More|4321|7218726122
+
+----------------------------------------------------------------------------------------------------------------------------
